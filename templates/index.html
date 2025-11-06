@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain MRI Analyser</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Brain MRI Analyser</h1>
+        <p>Upload an MRI scan to identify and segment tumors.</p>
+
+        <label for="imageInput" class="upload-area" id="upload-area">
+            
+            <div class="upload-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-cloud-arrow-up-fill" viewBox="0 0 16 16">
+                    <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.52 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 5.146a.5.5 0 0 1-.708 0L8.5 6.011V10.5a.5.5 0 0 1-1 0V6.011L6.354 7.146a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708"/>
+                </svg>
+            </div>
+            <div class="upload-text" id="upload-text">Drag & drop an image or click to upload</div>
+            <div class="upload-subtext">Supports .png, .jpg, .jpeg</div>
+        </label>
+        
+        <input type="file" id="imageInput" accept="image/png, image/jpeg">
+
+        <button id="analyzeButton">Analyze</button>
+
+        <div id="results-section">
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 1.5rem 0;">
+            <h2>Results</h2>
+            <div class="results-grid">
+                
+                <div class="image-box">
+                    <h3>Original</h3>
+                    <img id="original-preview" alt="Your uploaded MRI">
+                </div>
+
+                <div class="image-box">
+                    <h3>Analysis</h3>
+                    <div class="spinner-container" id="spinner-box">
+                        <div class="spinner"></div>
+                    </div>
+                    <img id="result-image" alt="Analyzed MRI">
+                </div>
+            </div>
+        </div>
+
+    </div> <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
