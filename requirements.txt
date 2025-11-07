@@ -1,5 +1,5 @@
-flask
+gradio
 ultralytics
 opencv-python-headless
 numpy
-gunicorn
+polars[rtcompat]
