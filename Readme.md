@@ -1,5 +1,5 @@
-🧠 Pulse AI Prototype 🦴
-A multi-task deep learning web application built with Gradio and YOLOv8. This tool provides a tabbed interface for analysing different types of medical scans to detect abnormalities.
+🧠 PULSE AI prototype 🦴
+A multi-task deep learning web application built with Gradio and YOLOv8. It runs as a Hugging Face Spaces web app and lets users upload scans in the browser to detect abnormalities.
 
 Tab 1: Brain Tumor (MRI) Analyser
 
@@ -54,56 +54,29 @@ Bash
 
 python -m venv venv
 source venv/bin/activate  # On Windows: .\venv\Scripts\activate
-Install Requirements: Make sure your requirements.txt file contains:
-
-gradio
-ultralytics
-opencv-python-headless
-numpy
-Then run:
+Install Requirements:
 
 Bash
 
 pip install -r requirements.txt
-Run the App:
+
+Then run:
 
 Bash
 
 python app.py
 The app will now be running on a local URL like http://127.0.0.1:7860.
 ☁️ How to Deploy on Hugging Face
-This project is designed to be deployed on Hugging Face Spaces for free.
+1. Push this repository to GitHub with `master` up to date.
+2. Go to Hugging Face and create a new Space.
+3. Set the SDK to `Gradio`.
+4. Choose `CPU basic` for the hardware.
+5. Import this GitHub repo into the Space or connect the repo directly.
+6. Wait for the first build to finish.
 
-Push to GitHub: Ensure your repository is up-to-date with all the files listed in the project structure (especially the .pt models and requirements.txt).
+Once the Space is running, Hugging Face gives you a public web URL. Open that URL in any browser and use the app like a normal web page: upload a scan, choose a model, and click `Run Analysis`.
 
-Create a Hugging Face Account:
-
-Log in to HuggingFace.co (preferably by linking your GitHub account).
-
-Create a New Space:
-
-Click your profile icon → New Space.
-
-Space name: Pulse-AI-Prototype
-
-License: MIT
-
-Space SDK: Select Gradio (This is the most important step).
-
-Hardware: Leave it on CPU basic - Free. This provides 16GB of RAM, which is enough for your models.
-
-Click Create Space.
-
-Import from GitHub:
-
-On your new Space page, click the "Files" tab.
-
-Click "Add file" → "Import from GitHub".
-
-Repo URL: Paste the URL of your GitHub repository.
-
-Branch: main (or master).
-
-Click "Import".
-
-Hugging Face will automatically pull your code, install the libraries from requirements.txt, and start your app.py service. The initial build may take 5-10 minutes. Once "Running", your app will be live for anyone to use.
+### Notes for Spaces
+- `app.py` now binds to `0.0.0.0` and uses the Space port automatically.
+- `opencv-python-headless` is used so the app works cleanly in a server environment.
+- Make sure the `.pt` model files stay in the repository or are stored with Git LFS.

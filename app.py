@@ -97,7 +97,7 @@ def update_header_and_theme(model_key):
         title_html = f"<h1>{emoji} Kidney Tumour Analyser</h1>"
     else:
         emoji = "🩺"
-        title_html = f"<h1>{emoji} Pulse AI Prototype</h1>"
+        title_html = f"<h1>{emoji} PULSE AI prototype</h1>"
     return gr.update(value=title_html), gr.update(value="")
 
 # -----------------------------------------------------------------
@@ -259,11 +259,11 @@ APP_HEAD = f"""
 
 # **THE FIX**: We use the 'head' argument to inject everything.
 # We also remove `css=...` and `mode="light"`.
-with gr.Blocks(title="Pulse AI Prototype", theme=theme, head=APP_HEAD) as demo:
+with gr.Blocks(title="PULSE AI prototype", theme=theme, head=APP_HEAD) as demo:
     
     dynamic_style = gr.HTML() # Still needed as a target for the model_selector
     
-    main_title = gr.Markdown("<h1>🩺 Pulse AI Prototype</h1>")
+    main_title = gr.Markdown("<h1>🩺 PULSE AI prototype</h1>")
     gr.Markdown("<p class='subheading'>Upload a scan to detect abnormalities. <b>Demo only — not for medical diagnosis.</b></p>")
 
     with gr.Row(variant="panel"):
@@ -348,4 +348,8 @@ with gr.Blocks(title="Pulse AI Prototype", theme=theme, head=APP_HEAD) as demo:
 # 8. LAUNCH THE APP (No Change)
 # -----------------------------------------------------------------
 if __name__ == "__main__":
-    demo.launch(debug=True, server_port=8080)
+    demo.launch(
+        server_name="0.0.0.0",
+        server_port=int(os.getenv("PORT", "7860")),
+        debug=False,
+    )
