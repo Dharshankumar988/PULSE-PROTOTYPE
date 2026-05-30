@@ -1,4 +1,4 @@
-🧠 Medical Scan Analyser 🦴
+🧠 Pulse AI Prototype 🦴
 A multi-task deep learning web application built with Gradio and YOLOv8. This tool provides a tabbed interface for analysing different types of medical scans to detect abnormalities.
 
 Tab 1: Brain Tumor (MRI) Analyser
@@ -34,7 +34,7 @@ Deployment: Hugging Face Spaces
 📁 Final Project Structure
 This project is configured for a standard Hugging Face Spaces deployment.
 
-Medical-Scan-Analyser/
+PULSE-PROTOTYPE/
 ├── app.py             # The main Gradio application
 ├── brain_model.pt     # Trained YOLOv8 model for brain tumors
 ├── fracture_model.pt  # Trained YOLOv8 model for bone fractures
@@ -46,8 +46,8 @@ Clone the Repository:
 
 Bash
 
-git clone https://github.com/YourUsername/Medical-Scan-Analyser.git
-cd Medical-Scan-Analyser
+git clone https://github.com/Dharshankumar988/PULSE-PROTOTYPE.git
+cd PULSE-PROTOTYPE
 (Optional) Create a Virtual Environment:
 
 Bash
@@ -84,7 +84,7 @@ Create a New Space:
 
 Click your profile icon → New Space.
 
-Space name: Medical-Scan-Analyser
+Space name: Pulse-AI-Prototype
 
 License: MIT
 
